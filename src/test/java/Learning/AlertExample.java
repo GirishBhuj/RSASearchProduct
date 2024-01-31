@@ -15,6 +15,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class AlertExample {
 
 	public static WebDriver browser;
@@ -32,17 +34,19 @@ public class AlertExample {
 	public static void main(String[] args) throws InterruptedException 
 	{
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");	
+		//WebDriver browser = WebDriverManager.chromedriver().create();
+		//WebDriver browser = WebDriverManager.firefoxdriver().create();
+		//WebDriver browser = WebDriverManager.edgedriver().create();
+		//WebDriver browser = WebDriverManager.safaridriver().create();		
+		
+		
+		//System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");	
 		ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
 		
-		try 
-		{
-			browser = new ChromeDriver(options);
-		} catch (Exception e1)
-		{
-			e1.printStackTrace();
-		}
+		WebDriver browser = WebDriverManager.chromedriver().capabilities(options).create();
+		//browser = new ChromeDriver(options);
+
 		browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(6)); //5 seconds wait will be applicable for all setps
 		browser.get("https://rahulshettyacademy.com/AutomationPractice/");
 		browser.manage().window().maximize();

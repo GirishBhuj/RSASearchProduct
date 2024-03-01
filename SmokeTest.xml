@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="test" enabled ="true">
   	<classes>
-  		<class name="CucumberTestRunner.TestRunnerFile"/>
+  		<class name="CucumberTestRunner.SmokeTestRunnerFile"/>
   	</classes>
   </test>
 </suite>

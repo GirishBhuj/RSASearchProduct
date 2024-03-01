@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AlertExample {
+public class ResizableElement {
 
 	public static WebDriver browser;
 	public static WebDriverWait wait;
@@ -32,37 +32,17 @@ public class AlertExample {
 	
 	public static void main(String[] args) throws InterruptedException 
 	{
-		
-		//WebDriver browser = WebDriverManager.chromedriver().create();
-		//WebDriver browser = WebDriverManager.firefoxdriver().create();
-		//WebDriver browser = WebDriverManager.edgedriver().create();
-		//WebDriver browser = WebDriverManager.safaridriver().create();		
-		
-		
-		//System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");	
 		ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
 		
 		WebDriver browser = WebDriverManager.chromedriver().capabilities(options).create();
-		//browser = new ChromeDriver(options);
 
-		browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(6)); //5 seconds wait will be applicable for all setps
-		browser.get("https://rahulshettyacademy.com/AutomationPractice/");
+		browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); //5 seconds wait will be applicable for all setps
+		browser.get("https://jqueryui.com/resources/demos/resizable/default.html");
 		browser.manage().window().maximize();
 
-		try 
-		{
-			//browser.findElement(By.xpath("//input[@id='alertbtn']")).click();
-			browser.findElement(By.xpath("//input[@id='confirmbtn']")).click();
-
-			Alert mAlert = browser.switchTo().alert();
-			System.out.println(mAlert.getText());
-			//mAlert.dismiss();
-			mAlert.accept();
-			//mAlert.sendKeys("");		
-		} catch (NoAlertPresentException NoAlertExp)
-		{
-			NoAlertExp.printStackTrace();
-		}
+		WebElement mResizableEle = browser.findElement(By.xpath("//*[@id=\"resizable\"]/div[3]"));
+		Actions mActions = new Actions(browser);
+		mActions.dragAndDropBy(mResizableEle, 150,150).perform();
 	}
 }

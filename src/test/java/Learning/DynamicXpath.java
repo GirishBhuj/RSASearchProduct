@@ -64,14 +64,21 @@ public class DynamicXpath {
 			</tr>
 			</tbody>
 			</table>
-			</div>		 
+			</div>
 		 
 		*/
+		
+		/*
+		1) /../: This part moves up one level in the DOM hierarchy from the previously selected <a> element. It navigates from the <a> element to its parent element.
+		2) following-sibling::td[3]: After moving up to the parent element with /../, this part selects the third <td> element that is a sibling of the parent element. Specifically, it selects the third <td> element occurring after the parent element in the document structure.
+		 */
 		System.out.println(browser.findElement(By.xpath("//a[contains(text(),'Joe.Root')]")).getText());
 		System.out.println(browser.findElement(By.xpath("//a[contains(text(),'Joe.Root')]/../following-sibling::td[1]")).getText());
 		System.out.println(browser.findElement(By.xpath("//a[contains(text(),'Joe.Root')]/../following-sibling::td[2]")).getText());
 		System.out.println(browser.findElement(By.xpath("//a[contains(text(),'Joe.Root')]/../following-sibling::td[3]")).getText());
 
-		////input[@id='ohrmList_chkSelectRecord_21']/../following-sibling::td[2]
+		// //input[@id='ohrmList_chkSelectRecord_21']/../following-sibling::td[2]
+		// To find li item who dont have any attribute value in "https://practicetestautomation.com/practice-test-exceptions/"
+		// //h5[contains(text(),'Test case 2')]/following-sibling::ol[1]/li[2]
 	}
 }

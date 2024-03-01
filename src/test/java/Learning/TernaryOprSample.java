@@ -2,8 +2,11 @@ package Learning;
 
 public class TernaryOprSample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 	    int number = 24;
+	    
+	    // variable = (condition) ? expression1 : expression2  
 	    String result = (number > 0) ? "Positive Number" : "Negative Number";
 	    System.out.println(result);
 	    

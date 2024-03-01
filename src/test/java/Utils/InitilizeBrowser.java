@@ -23,18 +23,33 @@ public class InitilizeBrowser {
 		Properties mProp = new Properties();
 		mProp.load(mfis);
 
-		mBrowserType = System.getProperty("browser");
-		String mEnv = System.getProperty("env");
+		// Use below code to run:
+		//mvn test -Denv=QA -Dbrowser=Chrome -PFunctionalTest
+		//mBrowserType = System.getProperty("browser");
+		//String mEnv = System.getProperty("env");
 		
-		//mBrowserType = mProp.getProperty("browser");
-		//String mEnv = mProp.getProperty("env");
+		mBrowserType = mProp.getProperty("browser");		
+		String mEnv = mProp.getProperty("env");
 
 		if (mBrowserType == null)
 		{
 			mBrowserType = "Chrome";
 		}
 		
-		if (mEnv.equals("QA"))
+		switch (mEnv)
+		{
+			case "QA":
+				mURL = mProp.getProperty("QAurl");
+				break;
+			case "PROD":
+				mURL = mProp.getProperty("ProdUrl");
+				break;
+			default:
+				mURL = mProp.getProperty("QAurl");
+				break;				
+		}
+		
+		/* if (mEnv.equals("QA"))
 		{
 			mURL = mProp.getProperty("QAurl");
 		}
@@ -45,9 +60,9 @@ public class InitilizeBrowser {
 		else
 		{
 			mURL = mProp.getProperty("QAurl");
-		}
+		} */
 				
-		System.out.println("mURL "+ mURL);
+		//System.out.println("mURL "+ mURL);
 		
 		if (System.getProperty("SOP") == "TRUE")
 		{
@@ -75,6 +90,10 @@ public class InitilizeBrowser {
 					System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"\\src\\resources\\msedgedriver.exe");					
 					mbrowser = new EdgeDriver();
 					break;
+				default:
+					System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\src\\resources\\chromedriver.exe");
+					mbrowser = new ChromeDriver();					
+					break;					
 			}
 			//To set 5 second wait for all framework requests
 			mbrowser.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

@@ -10,6 +10,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,13 +39,19 @@ public class AlertExample {
 		//WebDriver browser = WebDriverManager.edgedriver().create();
 		//WebDriver browser = WebDriverManager.safaridriver().create();		
 		
-		
 		//System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");	
 		ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
+		browser = new ChromeDriver(options);
 		
-		WebDriver browser = WebDriverManager.chromedriver().capabilities(options).create();
-		//browser = new ChromeDriver(options);
+        /* 
+        try {
+    		WebDriver browser = WebDriverManager.chromedriver().capabilities(options).create();
+    		browser = new ChromeDriver(options);        	
+        } catch (NumberFormatException ex)
+        {
+        	ex.printStackTrace();
+        }*/
 
 		browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(6)); //5 seconds wait will be applicable for all setps
 		browser.get("https://rahulshettyacademy.com/AutomationPractice/");

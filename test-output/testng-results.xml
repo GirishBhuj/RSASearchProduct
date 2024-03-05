@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-01T17:25:43 IST" name="Suite" finished-at="2024-03-01T17:25:51 IST" duration-ms="7790">
+  <suite started-at="2024-03-01T22:13:32 IST" name="Suite" finished-at="2024-03-01T22:13:53 IST" duration-ms="20659">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.SmokeTestRunnerFile@626abbd0]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-03-01T17:25:43 IST" name="test" finished-at="2024-03-01T17:25:51 IST" duration-ms="7790">
-      <class name="CucumberTestRunner.SmokeTestRunnerFile">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:CucumberTestRunner.SmokeTestRunnerFile@626abbd0]" started-at="2024-03-01T17:25:43 IST" name="setUpClass" finished-at="2024-03-01T17:25:44 IST" duration-ms="745" status="PASS">
+    <test started-at="2024-03-01T22:13:32 IST" name="test" finished-at="2024-03-01T22:13:53 IST" duration-ms="20659">
+      <class name="CucumberTestRunner.TestRunnerFile">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" started-at="2024-03-01T22:13:32 IST" name="setUpClass" finished-at="2024-03-01T22:13:33 IST" duration-ms="921" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@41e1455d]]>
+                <![CDATA[org.testng.TestRunner@187eb9a8]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.SmokeTestRunnerFile@626abbd0]" started-at="2024-03-01T17:25:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-01T17:25:51 IST" duration-ms="6925" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" started-at="2024-03-01T22:13:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-01T22:13:49 IST" duration-ms="16324" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search product in Home and Offers page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Search and place order for Products"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" started-at="2024-03-01T22:13:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-01T22:13:51 IST" duration-ms="18301" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,11 +53,44 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:CucumberTestRunner.SmokeTestRunnerFile@626abbd0]" started-at="2024-03-01T17:25:51 IST" name="tearDownClass" finished-at="2024-03-01T17:25:51 IST" duration-ms="61" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" started-at="2024-03-01T22:13:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-01T22:13:53 IST" duration-ms="19431" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search product in Home and Offers page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Search and place order for Products"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [No data] but found [Beetroot]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [No data] but found [Beetroot]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at StepDefinitions.OffersPageStepDefinition.validate_same_product_displayed_in_offers_page(OffersPageStepDefinition.java:55)
+at ✽.Same product displayed in Offers page(file:///C:/Users/01126A744/git/RSASample/Cucumber_Project/src/test/java/Features/ProductSearch.feature:15)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:CucumberTestRunner.TestRunnerFile@d23e042]" started-at="2024-03-01T22:13:53 IST" name="tearDownClass" finished-at="2024-03-01T22:13:53 IST" duration-ms="234" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- CucumberTestRunner.SmokeTestRunnerFile -->
+      </class> <!-- CucumberTestRunner.TestRunnerFile -->
     </test> <!-- test -->
   </suite> <!-- Suite -->
 </testng-results>
